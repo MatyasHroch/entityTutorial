@@ -21,7 +21,7 @@
 ### User (1) → Posts (N)
 ### Post (1) → Comments (N)
 
-## 2) Vyřešit, jak konkrétnímu uživateli ukázat, že tento příspěvek označil on
+## 2) Vyřešit, jak jak uchovat informace, které souvisí s právě jedním příspěvkem a právě jedním uživatelem
 - když někdo dá srdíčko na příspěvek na Instagramu, tak se mu příspěvek ukazuje se srdíčkem, jen těm, kdo jej označili → právě tyto informace je potřeba nějak uchovat
 ## 3) Vytvořit řešení pro vlákno zpráv mezi dvěma uživateli
 - Tak abyste byli schopni
