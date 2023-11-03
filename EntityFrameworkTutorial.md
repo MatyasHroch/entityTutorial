@@ -3,6 +3,7 @@
 - jak co nejjednodušeji nadefinovat entity a jejich vazby? (někdy vazby nejsou potřeba)
 - proč abstrakce?
 	- lépe se s tím dělá, když se změny promítají samy do databáze, podle toho, jak jsou objekty změněny
+	- prakticky žádné SQL apřitom využíváme jeho sílu
 	- možnost změny jedné či druhé technologie
 	- optimalizace, dokud se nedá ‘save’, neprovádí se dotaz
 	- možnost mít i více databází
@@ -12,7 +13,8 @@
 - [ ] musí **mít slot Id** může být i ‘nazevTridy’+Id
 - [ ] musí mít jeden **kostruktor prázdný**
 - [ ] pokud mají sloty typu dalších tříd anebo kolekcí těchto tříd, tak musí být označeny **virtual**
-- proč to všechno? → protože to jinak nefunguje dobře
+- proč to všechno? 
+	- → protože to jinak nefunguje dobře
 	- (virtual je kvůli proxies, Id je, aby třída odpovídala tabulce, prázdný konstruktor je kvůli reflexe)
 #### 1:1
 - slot pro jeden objekt na jedné straně
@@ -33,7 +35,11 @@
 -  Courses (N) → Students (M)
 - jak v SQL tabulkách?
 	- nová tabulka s oběma ID
-
+## Pohled do Databáze
+- pro přehled bychom si měli stáhnout 
+	- nějaký prohlížeč sqLite databáze, např. https://sqlitebrowser.org/dl/
+	nebo
+	- doplněk do VS Code → https://marketplace.visualstudio.com/items?itemName=qwtel.sqlite-viewer
 ## Constrains
 - Pokud to nepovoluje třída mít nějaký slot NULL, tak ani tabulka
 - Pokud má třída defaultní hodnotu, tak i v tabule bude defaultní hodnota
@@ -74,18 +80,18 @@
 	- na začátek dáme tyto příkazy:
 	- `dotnet tool install --global dotnet-ef` 
 	- `cd yourProject` → posunout se do složky projektu
-	- `dotnet ef migrations add InitialDb`
-	- `dotnet ef database update` → všechny migrace se postupně aplikují.. složí se dokupy
-	- kdykoliv cokoliv ve třídách změníme a chceme, aby se změna propsala i do databáze, tak dáme znovu `dotnet ef database update`
+	- `dotnet ef migrations add InitialDb` → vytvoří se migrace databáze
+	- `dotnet ef database update` → všechny migrace, které ještě nebyly aplikovány se postupně aplikují.. složí se dokupy a změní databázi
+	- kdykoliv cokoliv ve třídách změníme a chceme, aby se změna propsala i do databáze, tak dáme znovu
+		- `dotnet ef migrations add RealDbName
+		- `dotnet ef database update`
 ## Migrace
-- po každém `dotnet ef database update` se vygeneruje kód, který databázi přemění na novou verzi a také kód, který změnu odstraňuje
+- po každém `dotnet ef migrations add RealDbName` se vygeneruje kód, který databázi přemění na novou verzi a také kód, který změnu odstraňuje
+- po každém `dotnet ef database update` se tento kód provede
 	- můžou vzniknout problémy → při přidávání většinou ne, to je nejčastější důvod pro změnu v databázi
-- POZOR NA ZMENU TOHO, CO MUZE A NEMUZE BYT NULL
+
+- POZOR NA ZMĚNU TOHO, CO MŮŽE A NEMŮŽE BÝT NULL
 - vždycky se dá vše začít od začátku takto: https://stackoverflow.com/questions/11679385/reset-entity-framework-migrations
-- pro přehled bychom si měli stáhnout 
-	- nějaký prohlížeč sqLite databáze, např. https://sqlitebrowser.org/dl/
-	nebo 
-	- doplněk do VS Code → https://marketplace.visualstudio.com/items?itemName=qwtel.sqlite-viewer
 ## Ukázky použití spolu s Linq
 - CRUD
 ## Callbacky v Entity Frameworku?
@@ -123,8 +129,8 @@ return base.SaveChanges();
 Můžeme také zahrnout `x.State == EntityState.Added` pro nové záznamy, ale pokud jde o výchozí hodnoty, lepší je spoléhat na výchozí hodnotu než na přepsání SaveChanges.
 ## Ukázka navíc:
 - nechceme mít k dispozici ten kontrétní objekt, ale chceme, aby záznam souvisel přes idecko:
-public class Post
 ```csharp
+public class Post
 {
     public int Id { get; set; }
     public int BlogId { get; set; } // Required foreign key property
