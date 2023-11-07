@@ -32,7 +32,7 @@
 	- určit, který uživatel poslal kterou zprávu
 
 ## 4) Vytvořit nějaká data a poté vypsat:
-- [ ] Všechny příspěvky nějakého uživatele, které jsou starší než týden a v textu neobsahujou slovo “já” ve všech možných podobách
+- [ ] Všechny příspěvky nějakého uživatele, které jsou starší než týden a v textu neobsahujou slovo “já” ve všech možných podobách (stačí třeba velká i malá písmena)
 - [ ] Všechny příspěvky, které určitý uživatel ‘likenul’
 - [ ] Všechny příspěvky, které ‘likenuli’ dva různí uživatelé
 - [ ] Všechny příspěvky všech uživatelů, které 
