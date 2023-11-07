@@ -39,8 +39,8 @@
 	- určitý uživatel sleduje
 	- jsou staré maximálně 3 dny
 	- seřazené od nejnovějšího po nejstarší
-        - (to je v podstatě hlavní obrazovka Instagramu)
-        - to vše znamená, že si musíte vytvořit i fieldy pro sledující a sledované
+   - (to je v podstatě hlavní obrazovka Instagramu)
+   - to vše znamená, že si musíte vytvořit i fieldy pro sledující a sledované
 
 ## Rady
 1) když chcete prostě jenom jeden záznam jakýkoliv, tak stačí dát 
