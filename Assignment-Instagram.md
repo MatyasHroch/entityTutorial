@@ -24,7 +24,7 @@
 ### Post (1) → Comments (N)
 
 ## 2) Vyřešit, jak jak uchovat informace, které souvisí s právě jedním příspěvkem a právě jedním uživatelem
-- když někdo dá srdíčko na příspěvek na Instagramu, tak se mu příspěvek ukazuje se srdíčkem, jen těm, kdo jej označili → právě tyto informace je potřeba nějak uchovat
+- když někdo dá srdíčko na příspěvek na Instagramu, tak se mu příspěvek ukazuje se srdíčkem, jen tomu, kdo jej označil → právě tyto informace je potřeba nějak uchovat, vymyslete jak, protože bude třeba určit který uživatel dal srdíčko kterému příspěvku
 ## 3) Vytvořit řešení pro vlákno zpráv mezi dvěma uživateli
 - Tak abyste byli schopni
 	- přidávat zprávy oběma uživateli
