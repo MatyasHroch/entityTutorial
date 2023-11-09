@@ -6,6 +6,8 @@
 - firstName
 - lastName
 - age
+- fallowing
+- fallowed
 
 ### Posts
 - Id
